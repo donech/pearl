@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+package donech.pearl.gate.v1;
+
+option go_package = "v1";
+option java_multiple_files = true;
+option java_outer_classname = "GateApiProto";
+option java_package = "com.donech.pearl.gate.v1";
+option php_namespace = "Donech\\Pearl\\Gate\\V1";
+
+import "google/api/annotations.proto";
+
+//GateAPI.
+service GateAPI {
+  //Login.
+  rpc Login(LoginRequest) returns (LoginResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/login"
+      body: "*"
+    };
+  }
+  //Readiness.
+  rpc Readiness(ReadinessRequest) returns (ReadinessResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/readiness"
+    };
+  }
+  //Liveness.
+  rpc Liveness(LivenessRequest) returns (LivenessResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/liveness"
+    };
+  }
+  //SystemInfo.
+  rpc SystemInfo(SystemInfoRequest) returns (SystemInfoResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/system/info"
+    };
+  }
+}
+
+//LoginRequest.
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+  string type = 3;
+  bool auto_login = 4;
+}
+
+//LoginResponse.
+message LoginResponse {
+  int32 code = 1;
+  string msg = 2;
+  string token = 3;
+}
+
+//ReadinessRequest.
+message ReadinessRequest {}
+
+//ReadinessResponse.
+message ReadinessResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+//LivenessRequest.
+message LivenessRequest {}
+
+//LivenessResponse.
+message LivenessResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+message SystemInfoRequest {}
+
+message SystemInfoResponse {
+  int32 code = 1;
+  string msg = 2;
+  //Data.
+  message Data {
+    string name = 1;
+    string version = 2;
+    string copyright = 3;
+    string desc = 4;
+    string href = 5;
+  }
+  Data data = 3;
+}

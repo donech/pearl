@@ -1,0 +1,4939 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "cms.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "CmsService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/studio/authority/courseTeam/add": {
+      "post": {
+        "summary": "添加课程团队成员",
+        "operationId": "CmsService_AddCourseTeamUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddCourseTeamUserReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddCourseTeamUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/authority/courseTeam/disable": {
+      "get": {
+        "summary": "禁用课程团队成员",
+        "operationId": "CmsService_DisableCourseTeamUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DisableCourseTeamUserReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "targetOpenId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/authority/courseTeam/list": {
+      "get": {
+        "summary": "查询课程团队成员",
+        "operationId": "CmsService_QueryCourseTeamUserList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryCourseTeamUserListReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/authority/list": {
+      "get": {
+        "summary": "-------------------------CMS2.0 权限----------------\n查询当前登录用户的菜单",
+        "operationId": "CmsService_AuthorityList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AuthorityListReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/authority/role/list": {
+      "get": {
+        "summary": "查询中台角色列表",
+        "operationId": "CmsService_QueryRoleList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryRoleListReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/authority/user/search": {
+      "get": {
+        "summary": "查询中台权限sso 用户列表",
+        "operationId": "CmsService_SearchUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SearchUserReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/base/info/add": {
+      "post": {
+        "summary": "--------------课程基本信息  start----------------\n创建课程",
+        "operationId": "CmsService_CreateCourseBaseInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateCourseBaseInfoReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateCourseBaseInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/base/info/delete": {
+      "post": {
+        "summary": "删除课程",
+        "operationId": "CmsService_DeleteCourseBaseInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteCourseBaseInfoReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeleteCourseBaseInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/base/info/query": {
+      "get": {
+        "summary": "查询课程基本信息",
+        "operationId": "CmsService_QueryCourseBaseInfo2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryCourseBaseInfoReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      },
+      "post": {
+        "summary": "查询课程基本信息",
+        "operationId": "CmsService_QueryCourseBaseInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryCourseBaseInfoReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1QueryCourseBaseInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/base/info/query/list": {
+      "post": {
+        "summary": "课程列表",
+        "operationId": "CmsService_QueryCourseBaseInfoList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryCourseBaseInfoListReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1QueryCourseBaseInfoListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/base/info/set/subjectCode": {
+      "post": {
+        "summary": "设置配套题库",
+        "operationId": "CmsService_SetCourseSubjectCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SetCourseSubjectCodeReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SetCourseSubjectCodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/base/info/update": {
+      "post": {
+        "summary": "修改基本信息",
+        "operationId": "CmsService_UpdateCourseBaseInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateCourseBaseInfoReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateCourseBaseInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/copy": {
+      "post": {
+        "summary": "复制课程为其它课程（U校园、uTalk,随身学）",
+        "operationId": "CmsService_CopyCourse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CopyCourseReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CopyCourseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/publish": {
+      "get": {
+        "summary": "CoursePublish 发布接口.",
+        "operationId": "CmsService_CoursePublish",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1PublishCourseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "open_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/publish/check": {
+      "get": {
+        "summary": "CheckCoursePublishStatus 检查发布状态.",
+        "operationId": "CmsService_CheckCoursePublishStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckCoursePublishStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "task_id",
+            "description": "task_id 任务ID.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "open_id",
+            "description": "open_id 任务ID.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "user_id",
+            "description": "user_id 任务ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/publish/pass": {
+      "post": {
+        "summary": "PassPublish 通过发布",
+        "operationId": "CmsService_PassPublish",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1PassPublishResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1PassPublishRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/publish/reject": {
+      "post": {
+        "summary": "RejectPublish 驳回发布",
+        "operationId": "CmsService_RejectPublish",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RejectPublishResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RejectPublishRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/publish/replace": {
+      "post": {
+        "summary": "ReplacePublish 更新发布, 已发布课程重新发布",
+        "operationId": "CmsService_ReplacePublish",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ReplacePublishResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ReplacePublishRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/publish/submit": {
+      "post": {
+        "summary": "SubmitCheck 提交检测接口.",
+        "operationId": "CmsService_SubmitCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SubmitCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SubmitCheckRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/publish/update": {
+      "post": {
+        "summary": "CheckUpdate 检测更新接口, 检测中课程重新发布.",
+        "operationId": "CmsService_CheckUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckUpdateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/ssx/info": {
+      "post": {
+        "summary": "获取随身学课程数据（随身学请求数据使用）",
+        "operationId": "CmsService_GetSsxCourseInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetSsxCourseInfoReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GetSsxCourseInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/state": {
+      "post": {
+        "summary": "SetCoursewareState 设置课程状态",
+        "operationId": "CmsService_SetCoursewareState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SetCoursewareStateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SetCoursewareStateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/state/check/one": {
+      "post": {
+        "summary": "CheckOne 一检通过",
+        "operationId": "CmsService_CheckOne",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckOneResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckOneRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/state/check/three": {
+      "post": {
+        "summary": "CheckThree 三检通过",
+        "operationId": "CmsService_CheckThree",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckThreeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckThreeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/state/check/two": {
+      "post": {
+        "summary": "CheckTwo 二检通过",
+        "operationId": "CmsService_CheckTwo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckTwoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CheckTwoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/state/list": {
+      "post": {
+        "operationId": "CmsService_CoursewareStateList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CoursewareStateListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CoursewareStateListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/state/log": {
+      "get": {
+        "summary": "GetCoursewareStateLog 获取课程状态操作日志",
+        "operationId": "CmsService_GetCoursewareStateLog",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetCoursewareStateLogResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "open_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "course_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/course/transfer": {
+      "post": {
+        "summary": "转换课程为其它课程（随身学）",
+        "operationId": "CmsService_TransferCourse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1TransferCourseReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1TransferCourseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/exercise/callback": {
+      "post": {
+        "summary": "缺省作业录入回调",
+        "operationId": "CmsService_ExerciseCallback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExerciseCallbackReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ExerciseCallbackRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/exercise/create": {
+      "post": {
+        "summary": "创建缺省作业",
+        "operationId": "CmsService_CreateExercise",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateExerciseReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateExerciseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/exercise/delete": {
+      "post": {
+        "summary": "删除缺省作业",
+        "operationId": "CmsService_DeleteExercise",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteExerciseReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeleteExerciseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/exercise/query": {
+      "post": {
+        "summary": "查询缺省作业",
+        "operationId": "CmsService_QueryExercise",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryExerciseReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1QueryExerciseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/exercise/query/list": {
+      "post": {
+        "summary": "查询缺省作业列表",
+        "operationId": "CmsService_QueryExerciseList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryExerciseListReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1QueryExerciseListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/exercise/sync": {
+      "post": {
+        "summary": "缺省作业同步接口",
+        "operationId": "CmsService_ExerciseSync",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExerciseSyncReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ExerciseSyncRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/exercise/update": {
+      "post": {
+        "summary": "编辑缺省作业",
+        "operationId": "CmsService_UpdateExercise",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateExerciseReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateExerciseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/extraResource/add": {
+      "post": {
+        "summary": "添加补充资源",
+        "operationId": "CmsService_AddExtraResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddExtraResourceReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddExtraResourceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/extraResource/delete": {
+      "post": {
+        "summary": "删除补充资源",
+        "operationId": "CmsService_DeleteExtraResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteExtraResourceReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeleteExtraResourceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/extraResource/delete/batch": {
+      "post": {
+        "summary": "批量删除补充资源",
+        "operationId": "CmsService_DeleteExtraResourceBatch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteExtraResourceBatchReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeleteExtraResourceBatchRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/extraResource/edit": {
+      "post": {
+        "summary": "编辑补充资源",
+        "operationId": "CmsService_EditExtraResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddExtraResourceReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddExtraResourceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/extraResource/list": {
+      "post": {
+        "summary": "查看补充资源列表",
+        "operationId": "CmsService_ExtraResourceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExtraResourceListReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ExtraResourceListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/extraResource/sync": {
+      "post": {
+        "summary": "同步补充资源到业务系统",
+        "operationId": "CmsService_SyncExtraResource",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SyncExtraResourceReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SyncExtraResourceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node": {
+      "get": {
+        "summary": "查询课程目录节点",
+        "operationId": "CmsService_GetMenuNode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetMenuNodeReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/add": {
+      "post": {
+        "summary": "---------------------------目录节点 start-------------------------------\n添加课程目录节点",
+        "operationId": "CmsService_AddMenuNode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddMenuNodeReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddMenuNodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/batch/update": {
+      "post": {
+        "summary": "批量课程目录节点",
+        "operationId": "CmsService_SaveMenuNodeBatch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SaveMenuNodeBatchReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SaveMenuNodeBatchRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/content": {
+      "get": {
+        "summary": "查询目录节点题目内容",
+        "operationId": "CmsService_GetMenuNodeContent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetMenuNodeContentReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quesId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/content/add": {
+      "post": {
+        "summary": "---------------------------------题目内容 start-------------------------------\n添加目录节点题目内容",
+        "operationId": "CmsService_CreateMenuNodeContent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateMenuNodeContentReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateMenuNodeContentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/content/delete": {
+      "get": {
+        "summary": "删除目录节点题目内容",
+        "operationId": "CmsService_DeleteMenuNodeContent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteMenuNodeContentReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quesId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/content/lock/add": {
+      "get": {
+        "summary": "目录节点题目内容录入加锁",
+        "operationId": "CmsService_AddMenuNodeContentLock",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddMenuNodeContentLockReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/content/lock/renew": {
+      "get": {
+        "summary": "目录节点题目内容录入加锁",
+        "operationId": "CmsService_MenuNodeContentLockRenew",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuNodeContentLockRenewReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/content/update": {
+      "post": {
+        "summary": "修改目录节点题目内容",
+        "operationId": "CmsService_UpdateMenuNodeContent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateMenuNodeContentReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateMenuNodeContentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/copy": {
+      "post": {
+        "summary": "复制课程目录节点",
+        "operationId": "CmsService_CopyMenuNode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CopyMenuNodeReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CopyMenuNodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/delete": {
+      "get": {
+        "summary": "删除课程目录节点",
+        "operationId": "CmsService_DeleteMenuNode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteMenuNodeReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modified",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pModified",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "roleId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/drag": {
+      "post": {
+        "summary": "课程目录拖拽",
+        "operationId": "CmsService_MenuNodeDrag",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuNodeDragReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MenuNodeDragRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/init": {
+      "post": {
+        "summary": "初始化课程目录节点",
+        "operationId": "CmsService_InitMenuNode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1InitMenuNodeReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1InitMenuNodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/list": {
+      "get": {
+        "summary": "查询课程目录节点",
+        "operationId": "CmsService_QueryMenuNodeList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryMenuNodeListReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/lock": {
+      "get": {
+        "summary": "课程目录锁定",
+        "operationId": "CmsService_MenuNodeLock",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuNodeLockReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "roleId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/status": {
+      "get": {
+        "summary": "课程目录解锁",
+        "operationId": "CmsService_MenuNodeLockStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuNodeLockStatusReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "openId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "courseId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "roleId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    },
+    "/studio/menu/node/update": {
+      "post": {
+        "summary": "修改课程目录节点",
+        "operationId": "CmsService_UpdateMenuNode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateMenuNodeReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateMenuNodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CmsService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AddMenuNodeContentLockReplyLockReplyData": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "duration": {
+          "type": "string"
+        }
+      }
+    },
+    "GetCoursewareStateLogResponsestate_log": {
+      "type": "object",
+      "properties": {
+        "user_name": {
+          "type": "string"
+        },
+        "log": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        }
+      }
+    },
+    "QueryCourseBaseInfoListReplyList": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "courseName": {
+          "type": "string"
+        },
+        "courseType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createUserName": {
+          "type": "string"
+        },
+        "publishUser": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "publishUserName": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "publishTime": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1AddCourseTeamUserReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1AddCourseTeamUserRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "openIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1AddExtraResourceReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1AddExtraResourceReplyData"
+        }
+      }
+    },
+    "v1AddExtraResourceReplyData": {
+      "type": "object",
+      "properties": {
+        "resourceId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1AddExtraResourceRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resourceUrl": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fileSize": {
+          "type": "string"
+        }
+      }
+    },
+    "v1AddMenuNodeContentLockReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/AddMenuNodeContentLockReplyLockReplyData"
+        }
+      }
+    },
+    "v1AddMenuNodeReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNodeResp"
+        }
+      }
+    },
+    "v1AddMenuNodeRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "menu": {
+          "$ref": "#/definitions/v1MenuNode"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "添加目录节点"
+    },
+    "v1AuthorityListReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Menu"
+          }
+        }
+      }
+    },
+    "v1Button": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1COURSE_PUBLISH_STATUS": {
+      "type": "string",
+      "enum": [
+        "COURSE_PUBLISH_STATUS_INIT",
+        "COURSE_PUBLISH_STATUS_PROCESS",
+        "COURSE_PUBLISH_STATUS_FINISH",
+        "COURSE_PUBLISH_STATUS_FAIL"
+      ],
+      "default": "COURSE_PUBLISH_STATUS_INIT",
+      "description": "COURSE_PUBLISH_STATUS 发布状态.\n\n - COURSE_PUBLISH_STATUS_INIT: COURSE_PUBLISH_STATUS_INIT 构建中.\n - COURSE_PUBLISH_STATUS_PROCESS: COURSE_PUBLISH_STATUS_PROCESS 发布中.\n - COURSE_PUBLISH_STATUS_FINISH: COURSE_PUBLISH_STATUS_FINISH 发布完成.\n - COURSE_PUBLISH_STATUS_FAIL: COURSE_PUBLISH_STATUS_FAIL 发布失败."
+    },
+    "v1CheckCoursePublishStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1CheckCoursePublishStatusResponseData"
+        }
+      }
+    },
+    "v1CheckCoursePublishStatusResponseData": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "task_id 任务ID."
+        },
+        "status": {
+          "$ref": "#/definitions/v1COURSE_PUBLISH_STATUS",
+          "description": "status 任务状态."
+        },
+        "finish_step": {
+          "type": "integer",
+          "format": "int32",
+          "description": "finish_step 已完成步骤."
+        },
+        "total_step": {
+          "type": "integer",
+          "format": "int32",
+          "title": "total_step 总步骤"
+        }
+      }
+    },
+    "v1CheckOneRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CheckOneResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CheckThreeRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CheckThreeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CheckTwoRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CheckTwoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CheckUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CheckUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1CheckUpdateResponseData"
+        }
+      }
+    },
+    "v1CheckUpdateResponseData": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CopyCourseReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1CopyCourseReplyData"
+        }
+      }
+    },
+    "v1CopyCourseReplyData": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CopyCourseRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseCode": {
+          "type": "string"
+        },
+        "courseName": {
+          "type": "string"
+        }
+      },
+      "title": "复制课程"
+    },
+    "v1CopyMenuNodeReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNodeResp"
+        }
+      }
+    },
+    "v1CopyMenuNodeRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "menu": {
+          "$ref": "#/definitions/v1MenuNode"
+        },
+        "pNodeModified": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "复制课程目录节点"
+    },
+    "v1CourseBaseInfoData": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "courseType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseCode": {
+          "type": "string"
+        },
+        "template": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseName": {
+          "type": "string"
+        },
+        "courseEnName": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "language": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "goodsId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "contentTitle": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "pcImage": {
+          "type": "string"
+        },
+        "mobileImage": {
+          "type": "string"
+        },
+        "speImage": {
+          "type": "string"
+        },
+        "attribute": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "series": {
+          "type": "string"
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "publishUser": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "publishTime": {
+          "type": "string"
+        },
+        "extra": {
+          "type": "string"
+        },
+        "lock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "createUserName": {
+          "type": "string"
+        },
+        "publishUserName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CourseTeam": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sourceRoleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CoursewareStateListRequest": {
+      "type": "object",
+      "properties": {
+        "open_id": {
+          "type": "string"
+        },
+        "course_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1CoursewareStateListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/v1State"
+          }
+        }
+      }
+    },
+    "v1CreateCourseBaseInfoReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1CreateCourseBaseInfoReplyData"
+        }
+      }
+    },
+    "v1CreateCourseBaseInfoReplyData": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateCourseBaseInfoRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "template": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attribute": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "series": {
+          "type": "string"
+        },
+        "courseCode": {
+          "type": "string"
+        },
+        "courseName": {
+          "type": "string"
+        },
+        "goodsId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "创建课程"
+    },
+    "v1CreateExerciseReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1CreateExerciseReplyData"
+        }
+      }
+    },
+    "v1CreateExerciseReplyData": {
+      "type": "object",
+      "properties": {
+        "exerciseId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CreateExerciseRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "创建缺省作业"
+    },
+    "v1CreateMenuNodeContentReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuContentResp"
+        }
+      }
+    },
+    "v1CreateMenuNodeContentRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "templateName": {
+          "type": "string"
+        },
+        "quesVersion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "quesId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DeleteCourseBaseInfoReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeleteCourseBaseInfoRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        }
+      },
+      "title": "delete course base info"
+    },
+    "v1DeleteExerciseReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeleteExerciseRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "exerciseId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "删除缺省作业"
+    },
+    "v1DeleteExtraResourceBatchReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeleteExtraResourceBatchRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "resourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DeleteExtraResourceReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeleteExtraResourceRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DeleteMenuNodeContentReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1DeleteMenuNodeReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNodeResp"
+        }
+      }
+    },
+    "v1DisableCourseTeamUserReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1ExerciseCallbackReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ExerciseCallbackRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "string"
+        }
+      },
+      "title": "缺省作业录入回调"
+    },
+    "v1ExerciseSyncReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ExerciseSyncReplyData"
+          }
+        }
+      }
+    },
+    "v1ExerciseSyncReplyData": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "exerciseId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1ExerciseSyncRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        }
+      },
+      "title": "缺省作业sync"
+    },
+    "v1ExtraResourceListReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ExtraResourceListReplyData"
+          }
+        }
+      }
+    },
+    "v1ExtraResourceListReplyData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resourceUrl": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "opTime": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ExtraResourceListRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1GetCoursewareStateLogResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetCoursewareStateLogResponsestate_log"
+          }
+        }
+      }
+    },
+    "v1GetMenuNodeContentReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNodeContent"
+        }
+      }
+    },
+    "v1GetMenuNodeReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNode"
+        }
+      }
+    },
+    "v1GetSsxCourseInfoReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1GetSsxCourseInfoReplyData"
+        }
+      }
+    },
+    "v1GetSsxCourseInfoReplyData": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetSsxCourseInfoRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        }
+      },
+      "title": "获取随身学课程数据"
+    },
+    "v1InitMenuNodeReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1InitMenuNodeRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "menus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MenuNode"
+          }
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "初始化目录节点"
+    },
+    "v1Menu": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "extra": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "permissionCode": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MenuContentResp": {
+      "type": "object",
+      "properties": {
+        "quesId": {
+          "type": "string"
+        },
+        "quesVersion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuNode": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quesId": {
+          "type": "string"
+        },
+        "subQuesNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "coverPath": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "equesType": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "displayType": {
+          "type": "string"
+        },
+        "displayTypeModel": {
+          "type": "string"
+        },
+        "childrenInOnePage": {
+          "type": "boolean"
+        },
+        "pageInfo": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MenuNode"
+          }
+        },
+        "deleted": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "equesCategory": {
+          "type": "string"
+        },
+        "examId": {
+          "type": "string"
+        },
+        "examName": {
+          "type": "string"
+        },
+        "probation": {
+          "type": "boolean"
+        },
+        "isSubjective": {
+          "type": "boolean"
+        },
+        "counted": {
+          "type": "boolean"
+        },
+        "pModified": {
+          "type": "string"
+        }
+      },
+      "title": "目录节点"
+    },
+    "v1MenuNodeContent": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "templateName": {
+          "type": "string"
+        },
+        "quesVersion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "quesId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuNodeContentLockRenewReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MenuNodeDragReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNodeResp"
+        }
+      }
+    },
+    "v1MenuNodeDragRequest": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string"
+        },
+        "targetPid": {
+          "type": "string"
+        },
+        "sourcePid": {
+          "type": "string"
+        },
+        "sourcePModified": {
+          "type": "string"
+        },
+        "targetPModified": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "menus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MenuNode"
+          }
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MenuNodeLockReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MenuNodeLockStatusReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNodeLockStatusReplyData"
+        }
+      }
+    },
+    "v1MenuNodeLockStatusReplyData": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "display": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MenuNodeResp": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "pModified": {
+          "type": "string"
+        },
+        "sourcePModified": {
+          "type": "string"
+        }
+      }
+    },
+    "v1Page": {
+      "type": "object",
+      "properties": {
+        "totalCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "currentPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1PassPublishRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1PassPublishResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1PublishCourseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1PublishCourseResponseData"
+        }
+      }
+    },
+    "v1PublishCourseResponseData": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v1QueryCourseBaseInfoListReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1QueryCourseBaseInfoListReplyData"
+        }
+      }
+    },
+    "v1QueryCourseBaseInfoListReplyData": {
+      "type": "object",
+      "properties": {
+        "totalRows": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QueryCourseBaseInfoListReplyList"
+          }
+        }
+      }
+    },
+    "v1QueryCourseBaseInfoListRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "courseType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1QueryCourseBaseInfoReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1CourseBaseInfoData"
+        }
+      }
+    },
+    "v1QueryCourseBaseInfoRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        }
+      },
+      "title": "query course base info"
+    },
+    "v1QueryCourseTeamUserListReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CourseTeam"
+          }
+        }
+      }
+    },
+    "v1QueryExerciseListReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1QueryExerciseListReplyData"
+          }
+        }
+      }
+    },
+    "v1QueryExerciseListReplyData": {
+      "type": "object",
+      "properties": {
+        "exerciseId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        }
+      }
+    },
+    "v1QueryExerciseListRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "string"
+        }
+      },
+      "title": "查询缺省作业列表"
+    },
+    "v1QueryExerciseReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1QueryExerciseReplyData"
+        }
+      }
+    },
+    "v1QueryExerciseReplyData": {
+      "type": "object",
+      "properties": {
+        "exerciseId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        }
+      }
+    },
+    "v1QueryExerciseRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "exerciseId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "查询缺省作业"
+    },
+    "v1QueryMenuNodeListReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MenuNode"
+          }
+        }
+      }
+    },
+    "v1QueryRoleListReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Role"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/v1Page"
+        }
+      }
+    },
+    "v1RejectPublishRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1RejectPublishResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ReplacePublishRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1ReplacePublishResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1ReplacePublishResponseData"
+        }
+      }
+    },
+    "v1ReplacePublishResponseData": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v1Role": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1SaveMenuNodeBatchReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1SaveMenuNodeBatchRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "menus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MenuNode"
+          }
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "批量保存目录节点"
+    },
+    "v1SearchUserReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1User"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/v1Page"
+        }
+      }
+    },
+    "v1SetCourseSubjectCodeReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SetCourseSubjectCodeRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "courseSubjectCode": {
+          "type": "string"
+        }
+      },
+      "title": "query course base info"
+    },
+    "v1SetCoursewareStateRequest": {
+      "type": "object",
+      "properties": {
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "course_id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SetCoursewareStateResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1State": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "course_id": {
+          "type": "string"
+        },
+        "buttons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Button"
+          }
+        }
+      }
+    },
+    "v1SubmitCheckRequest": {
+      "type": "object",
+      "properties": {
+        "course_id": {
+          "type": "string"
+        },
+        "open_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1SubmitCheckResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1SubmitCheckResponseData"
+        }
+      }
+    },
+    "v1SubmitCheckResponseData": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SyncExtraResourceReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1SyncExtraResourceReplyData"
+          }
+        }
+      }
+    },
+    "v1SyncExtraResourceReplyData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resourceUrl": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SyncExtraResourceRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1TransferCourseReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1TransferCourseReplyData"
+        }
+      }
+    },
+    "v1TransferCourseReplyData": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1TransferCourseRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "transType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseCode": {
+          "type": "string"
+        },
+        "courseName": {
+          "type": "string"
+        },
+        "template": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "转换课程"
+    },
+    "v1UpdateCourseBaseInfoReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UpdateCourseBaseInfoRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "courseName": {
+          "type": "string"
+        },
+        "courseEnName": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "language": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attribute": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "series": {
+          "type": "string"
+        },
+        "goodsId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "contentTitle": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "pcImage": {
+          "type": "string"
+        },
+        "mobileImage": {
+          "type": "string"
+        },
+        "speImage": {
+          "type": "string"
+        },
+        "courseSubjectCode": {
+          "type": "string"
+        }
+      },
+      "title": "修改课程基本信息"
+    },
+    "v1UpdateExerciseReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UpdateExerciseRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "exerciseId": {
+          "type": "integer",
+          "format": "int32",
+          "title": "string content = 5;"
+        }
+      },
+      "title": "编辑缺省作业"
+    },
+    "v1UpdateMenuNodeContentReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuContentResp"
+        }
+      }
+    },
+    "v1UpdateMenuNodeContentRequest": {
+      "type": "object",
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "templateName": {
+          "type": "string"
+        },
+        "quesVersion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "openId": {
+          "type": "string"
+        },
+        "quesId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1UpdateMenuNodeReply": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/v1MenuNodeResp"
+        }
+      }
+    },
+    "v1UpdateMenuNodeRequest": {
+      "type": "object",
+      "properties": {
+        "openId": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "menu": {
+          "$ref": "#/definitions/v1MenuNode"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "跟新目录节点"
+    },
+    "v1User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "openId": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

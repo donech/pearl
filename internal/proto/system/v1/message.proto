@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package donech.pearl.system.v1;
+
+option go_package = "v1";
+option java_multiple_files = true;
+option java_outer_classname = "MessageProto";
+option java_package = "com.donech.pearl.system.v1";
+option php_namespace = "Donech\\Pearl\\System\\V1";
+
+//User 用户详情.
+message User {
+  int64 id = 1;
+  string name = 2;
+  string account = 3;
+  string created_time = 101;
+  string updated_time = 102;
+  string deleted_time = 103;
+}
+
+//RelationType 联系方式类型.
+enum RelationType {
+  //RELATION_TYPE_INVALID 非法Type.
+  RELATION_TYPE_INVALID = 0;
+  //RELATION_TYPE_QQ qq.
+  RELATION_TYPE_QQ = 1;
+  //RELATION_TYPE_EMAIL 邮箱.
+  RELATION_TYPE_EMAIL = 2;
+  //RELATION_TYPE_TEL 座机.
+  RELATION_TYPE_TEL = 3;
+  //RELATION_TYPE_MOBILE 移动电话.
+  RELATION_TYPE_MOBILE = 4;
+  //RELATION_TYPE_ADDRESS 联系地址.
+  RELATION_TYPE_ADDRESS = 5;
+}
+
+//Relation 联系方式.
+message Relation {
+  int64 id = 1;
+  int64 constact_id = 2;
+  RelationType type = 3;
+  string value = 4;
+  string created_time = 101;
+  string updated_time = 102;
+  string deleted_time = 103;
+}
+
+//Constact 联系人信息.
+message Constact {
+  int64 id = 1;
+  int64 supplier_id = 2;
+  string title = 3;
+  string firstname = 4;
+  string lastname = 5;
+  repeated Relation relations = 6;
+  string created_time = 101;
+  string updated_time = 102;
+  string deleted_time = 103;
+}
+
+//Supplier 供应商信息.
+message Supplier {
+  int64 id = 1;
+  string name = 2;
+  string address = 3;
+  repeated Constact constacts = 4;
+  string created_time = 101;
+  string updated_time = 102;
+  string deleted_time = 103;
+}

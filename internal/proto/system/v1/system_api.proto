@@ -1,0 +1,264 @@
+syntax = "proto3";
+
+package donech.pearl.system.v1;
+
+option go_package = "v1";
+option java_multiple_files = true;
+option java_outer_classname = "SystemApiProto";
+option java_package = "com.donech.pearl.system.v1";
+option php_namespace = "Donech\\Pearl\\System\\V1";
+
+import "common/v1/message.proto";
+import "google/api/annotations.proto";
+import "system/v1/message.proto";
+
+//SystemAPI.
+service SystemAPI {
+  //Users 用户列表.
+  rpc Users(UsersRequest) returns (UsersResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/users"
+      body: "*"
+    };
+  }
+  //User 用户详情.
+  rpc User(UserRequest) returns (UserResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/user"
+    };
+  }
+  //CurrentUser 当前用户详情.
+  rpc CurrentUser(CurrentUserRequest) returns (CurrentUserResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/current/user"
+    };
+  }
+  //SaveUser 创建.
+  rpc SaveUser(SaveUserRequest) returns (SaveUserResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/user"
+      body: "*"
+    };
+  }
+  //ChangePassword 创建.
+  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/user/password"
+      body: "*"
+    };
+  }
+  //SupplierList 供货商列表.
+  rpc SupplierList(SupplierListRequest) returns (SupplierListResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/suppliers"
+      body: "*"
+    };
+  }
+  //Supplier 供货商详情.
+  rpc Supplier(SupplierRequest) returns (SupplierResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/supplier"
+    };
+  }
+  //SaveSupplier 创建/更新供货商.
+  rpc SaveSupplier(SaveSupplierRequest) returns (SaveSupplierResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/supplier"
+      body: "*"
+    };
+  }
+  //DeleteSupplier 删除供货商.
+  rpc DeleteSupplier(DeleteSupplierRequest) returns (DeleteSupplierResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/supplier/delete"
+      body: "*"
+    };
+  }
+  //SaveSupplierConstact 创建/更新供货商联系人.
+  rpc SaveSupplierConstact(SaveSupplierConstactRequest) returns (SaveSupplierConstactResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/supplier/constact"
+      body: "*"
+    };
+  }
+  //DeleteSupplierConstact 删除供货商联系人.
+  rpc DeleteSupplierConstact(DeleteSupplierConstactRequest) returns (DeleteSupplierConstactResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/suppliers/constact/delete"
+      body: "*"
+    };
+  }
+  //SaveSupplierConstactRelation 创建/更新供货商联系人联系方式.
+  rpc SaveSupplierConstactRelation(SaveSupplierConstactRelationRequest) returns (SaveSupplierConstactRelationResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/supplier/constact/relation"
+      body: "*"
+    };
+  }
+  //DeleteSupplierConstactRelation 删除供货商联系人联系方式.
+  rpc DeleteSupplierConstactRelation(DeleteSupplierConstactRelationRequest) returns (DeleteSupplierConstactRelationResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/supplier/constact/relation/delete"
+      body: "*"
+    };
+  }
+}
+
+//UsersRequest.
+message UsersRequest {
+  string name = 1;
+  string account = 2;
+  donech.pearl.common.v1.Pager pager = 3;
+}
+
+//UsersResponse.
+message UsersResponse {
+  int32 code = 1;
+  string msg = 2;
+  //Data.
+  message Data {
+    int32 total = 1;
+    repeated User list = 2;
+  }
+  Data data = 3;
+}
+
+message UserRequest {
+  int64 id = 1;
+}
+
+message UserResponse {
+  int32 code = 1;
+  string msg = 2;
+  User data = 3;
+}
+
+message CurrentUserRequest {}
+
+message CurrentUserResponse {
+  int32 code = 1;
+  string msg = 2;
+  User data = 3;
+}
+
+message SaveUserRequest {
+  string name = 1;
+  string account = 2;
+  string password = 3;
+  string confirm = 4;
+}
+
+message SaveUserResponse {
+  int32 code = 1;
+  string msg = 2;
+  User data = 3;
+}
+
+message ChangePasswordRequest {
+  string account = 1;
+  string password = 2;
+  string confirm = 3;
+  string code = 4;
+}
+
+message ChangePasswordResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+//SupplierListRequest.
+message SupplierListRequest {
+  string name = 1;
+  string address = 2;
+  donech.pearl.common.v1.Pager pager = 3;
+}
+
+//SupplierListResponse.
+message SupplierListResponse {
+  int32 code = 1;
+  string msg = 2;
+  //Data.
+  message Data {
+    int32 total = 1;
+    repeated Supplier list = 2;
+  }
+  Data data = 3;
+}
+
+message SupplierRequest {
+  int64 id = 1;
+}
+
+message SupplierResponse {
+  int32 code = 1;
+  string msg = 2;
+  Supplier data = 3;
+}
+
+message SaveSupplierRequest {
+  int64 id = 1;
+  string name = 2;
+  string address = 3;
+  repeated Constact constacts = 4;
+}
+
+message SaveSupplierResponse {
+  int32 code = 1;
+  string msg = 2;
+  Supplier data = 3;
+}
+
+message DeleteSupplierRequest {
+  int64 id = 1;
+}
+
+message DeleteSupplierResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+message SaveSupplierConstactRequest {
+  int64 id = 1;
+  int64 supplier_id = 2;
+  string title = 3;
+  string firstname = 4;
+  string lastname = 5;
+  repeated Relation relations = 6;
+}
+
+message SaveSupplierConstactResponse {
+  int32 code = 1;
+  string msg = 2;
+  Constact data = 3;
+}
+
+message DeleteSupplierConstactRequest {
+  int64 id = 1;
+}
+
+message DeleteSupplierConstactResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+message SaveSupplierConstactRelationRequest {
+  int64 id = 1;
+  int64 constact_id = 2;
+  RelationType type = 3;
+  string value = 4;
+}
+
+message SaveSupplierConstactRelationResponse {
+  int32 code = 1;
+  string msg = 2;
+  Relation data = 3;
+}
+
+message DeleteSupplierConstactRelationRequest {
+  int64 id = 1;
+}
+
+message DeleteSupplierConstactRelationResponse {
+  int32 code = 1;
+  string msg = 2;
+}

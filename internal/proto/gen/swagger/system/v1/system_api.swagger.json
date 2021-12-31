@@ -1,0 +1,882 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "system/v1/system_api.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/current/user": {
+      "get": {
+        "summary": "CurrentUser 当前用户详情.",
+        "operationId": "CurrentUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.CurrentUserResponse"
+            }
+          }
+        },
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/supplier": {
+      "get": {
+        "summary": "Supplier 供货商详情.",
+        "operationId": "Supplier",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SupplierResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      },
+      "post": {
+        "summary": "SaveSupplier 创建/更新供货商.",
+        "operationId": "SaveSupplier",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveSupplierResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveSupplierRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/supplier/constact": {
+      "post": {
+        "summary": "SaveSupplierConstact 创建/更新供货商联系人.",
+        "operationId": "SaveSupplierConstact",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveSupplierConstactResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveSupplierConstactRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/supplier/constact/relation": {
+      "post": {
+        "summary": "SaveSupplierConstactRelation 创建/更新供货商联系人联系方式.",
+        "operationId": "SaveSupplierConstactRelation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveSupplierConstactRelationResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveSupplierConstactRelationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/supplier/constact/relation/delete": {
+      "post": {
+        "summary": "DeleteSupplierConstactRelation 删除供货商联系人联系方式.",
+        "operationId": "DeleteSupplierConstactRelation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.DeleteSupplierConstactRelationResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.DeleteSupplierConstactRelationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/supplier/delete": {
+      "post": {
+        "summary": "DeleteSupplier 删除供货商.",
+        "operationId": "DeleteSupplier",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.DeleteSupplierResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.DeleteSupplierRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/suppliers": {
+      "post": {
+        "summary": "SupplierList 供货商列表.",
+        "operationId": "SupplierList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SupplierListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SupplierListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/suppliers/constact/delete": {
+      "post": {
+        "summary": "DeleteSupplierConstact 删除供货商联系人.",
+        "operationId": "DeleteSupplierConstact",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.DeleteSupplierConstactResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.DeleteSupplierConstactRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/user": {
+      "get": {
+        "summary": "User 用户详情.",
+        "operationId": "User",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.UserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      },
+      "post": {
+        "summary": "SaveUser 创建.",
+        "operationId": "SaveUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.SaveUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/user/password": {
+      "post": {
+        "summary": "ChangePassword 创建.",
+        "operationId": "ChangePassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.ChangePasswordResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.ChangePasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    },
+    "/api/v1/users": {
+      "post": {
+        "summary": "Users 用户列表.",
+        "operationId": "Users",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.UsersResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.system.v1.UsersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemAPI"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "donech.pearl.common.v1.Pager": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "description": "Pager 分页参数."
+    },
+    "donech.pearl.system.v1.ChangePasswordRequest": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "confirm": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "donech.pearl.system.v1.ChangePasswordResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "donech.pearl.system.v1.Constact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "supplierId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/donech.pearl.system.v1.Relation"
+          }
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "type": "string"
+        },
+        "deletedTime": {
+          "type": "string"
+        }
+      },
+      "description": "Constact 联系人信息."
+    },
+    "donech.pearl.system.v1.CurrentUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.User"
+        }
+      }
+    },
+    "donech.pearl.system.v1.DeleteSupplierConstactRelationRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "donech.pearl.system.v1.DeleteSupplierConstactRelationResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "donech.pearl.system.v1.DeleteSupplierConstactRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "donech.pearl.system.v1.DeleteSupplierConstactResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "donech.pearl.system.v1.DeleteSupplierRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "donech.pearl.system.v1.DeleteSupplierResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "donech.pearl.system.v1.Relation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "constactId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/donech.pearl.system.v1.RelationType"
+        },
+        "value": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "type": "string"
+        },
+        "deletedTime": {
+          "type": "string"
+        }
+      },
+      "description": "Relation 联系方式."
+    },
+    "donech.pearl.system.v1.RelationType": {
+      "type": "string",
+      "enum": [
+        "RELATION_TYPE_INVALID",
+        "RELATION_TYPE_QQ",
+        "RELATION_TYPE_EMAIL",
+        "RELATION_TYPE_TEL",
+        "RELATION_TYPE_MOBILE",
+        "RELATION_TYPE_ADDRESS"
+      ],
+      "default": "RELATION_TYPE_INVALID",
+      "description": "RelationType 联系方式类型.\n\n - RELATION_TYPE_INVALID: RELATION_TYPE_INVALID 非法Type.\n - RELATION_TYPE_QQ: RELATION_TYPE_QQ qq.\n - RELATION_TYPE_EMAIL: RELATION_TYPE_EMAIL 邮箱.\n - RELATION_TYPE_TEL: RELATION_TYPE_TEL 座机.\n - RELATION_TYPE_MOBILE: RELATION_TYPE_MOBILE 移动电话.\n - RELATION_TYPE_ADDRESS: RELATION_TYPE_ADDRESS 联系地址."
+    },
+    "donech.pearl.system.v1.SaveSupplierConstactRelationRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "constactId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/donech.pearl.system.v1.RelationType"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "donech.pearl.system.v1.SaveSupplierConstactRelationResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.Relation"
+        }
+      }
+    },
+    "donech.pearl.system.v1.SaveSupplierConstactRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "supplierId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/donech.pearl.system.v1.Relation"
+          }
+        }
+      }
+    },
+    "donech.pearl.system.v1.SaveSupplierConstactResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.Constact"
+        }
+      }
+    },
+    "donech.pearl.system.v1.SaveSupplierRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "constacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/donech.pearl.system.v1.Constact"
+          }
+        }
+      }
+    },
+    "donech.pearl.system.v1.SaveSupplierResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.Supplier"
+        }
+      }
+    },
+    "donech.pearl.system.v1.SaveUserRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "confirm": {
+          "type": "string"
+        }
+      }
+    },
+    "donech.pearl.system.v1.SaveUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.User"
+        }
+      }
+    },
+    "donech.pearl.system.v1.Supplier": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "constacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/donech.pearl.system.v1.Constact"
+          }
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "type": "string"
+        },
+        "deletedTime": {
+          "type": "string"
+        }
+      },
+      "description": "Supplier 供应商信息."
+    },
+    "donech.pearl.system.v1.SupplierListRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "pager": {
+          "$ref": "#/definitions/donech.pearl.common.v1.Pager"
+        }
+      },
+      "description": "SupplierListRequest."
+    },
+    "donech.pearl.system.v1.SupplierListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.SupplierListResponse.Data"
+        }
+      },
+      "description": "SupplierListResponse."
+    },
+    "donech.pearl.system.v1.SupplierListResponse.Data": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/donech.pearl.system.v1.Supplier"
+          }
+        }
+      },
+      "description": "Data."
+    },
+    "donech.pearl.system.v1.SupplierResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.Supplier"
+        }
+      }
+    },
+    "donech.pearl.system.v1.User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "type": "string"
+        },
+        "deletedTime": {
+          "type": "string"
+        }
+      },
+      "description": "User 用户详情."
+    },
+    "donech.pearl.system.v1.UserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.User"
+        }
+      }
+    },
+    "donech.pearl.system.v1.UsersRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "pager": {
+          "$ref": "#/definitions/donech.pearl.common.v1.Pager"
+        }
+      },
+      "description": "UsersRequest."
+    },
+    "donech.pearl.system.v1.UsersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.system.v1.UsersResponse.Data"
+        }
+      },
+      "description": "UsersResponse."
+    },
+    "donech.pearl.system.v1.UsersResponse.Data": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/donech.pearl.system.v1.User"
+          }
+        }
+      },
+      "description": "Data."
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "gate/v1/gate_api.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/liveness": {
+      "get": {
+        "summary": "Liveness.",
+        "operationId": "Liveness",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.gate.v1.LivenessResponse"
+            }
+          }
+        },
+        "tags": [
+          "GateAPI"
+        ]
+      }
+    },
+    "/api/v1/login": {
+      "post": {
+        "summary": "Login.",
+        "operationId": "Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.gate.v1.LoginResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.gate.v1.LoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GateAPI"
+        ]
+      }
+    },
+    "/api/v1/readiness": {
+      "get": {
+        "summary": "Readiness.",
+        "operationId": "Readiness",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.gate.v1.ReadinessResponse"
+            }
+          }
+        },
+        "tags": [
+          "GateAPI"
+        ]
+      }
+    },
+    "/api/v1/system/info": {
+      "get": {
+        "summary": "SystemInfo.",
+        "operationId": "SystemInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/donech.pearl.gate.v1.SystemInfoResponse"
+            }
+          }
+        },
+        "tags": [
+          "GateAPI"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "donech.pearl.gate.v1.LivenessResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "description": "LivenessResponse."
+    },
+    "donech.pearl.gate.v1.LoginRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "autoLogin": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "description": "LoginRequest."
+    },
+    "donech.pearl.gate.v1.LoginResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "description": "LoginResponse."
+    },
+    "donech.pearl.gate.v1.ReadinessResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "description": "ReadinessResponse."
+    },
+    "donech.pearl.gate.v1.SystemInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/donech.pearl.gate.v1.SystemInfoResponse.Data"
+        }
+      }
+    },
+    "donech.pearl.gate.v1.SystemInfoResponse.Data": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "copyright": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        }
+      },
+      "description": "Data."
+    }
+  }
+}

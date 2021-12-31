@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package donech.pearl.common.v1;
+
+option go_package = "v1";
+option java_multiple_files = true;
+option java_outer_classname = "MessageProto";
+option java_package = "com.donech.pearl.common.v1";
+option php_namespace = "Donech\\Pearl\\Common\\V1";
+
+//Pager 分页参数.
+message Pager {
+  int32 page = 1;
+  int32 size = 2;
+}

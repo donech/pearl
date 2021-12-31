@@ -1,0 +1,145 @@
+# Paths to exclude when searching for Protobuf files.
+# These can either be file or directory names.
+# If there is a directory name, that directory and all sub-directories will be excluded.
+excludes:
+  - gen
+  - third_party
+#  - path/to/b/file.proto
+
+# Protoc directives.
+protoc:
+  # The Protobuf version to use from https://github.com/protocolbuffers/protobuf/releases.
+  # By default use 3.7.1.
+  # You probably want to set this to make your builds completely reproducible.
+  version: 3.17.3
+
+    # Additional paths to include with -I to protoc.
+    # By default, the directory of the config file is included,
+    # or the current directory if there is no config file.
+  includes:
+    - third_party
+
+  # If not set, compile will fail if there are unused imports.
+  # Setting this will ignore unused imports.
+  allow_unused_imports: false
+
+  # Create directives.
+  #create:
+  # List of mappings from relative directory to base package.
+  # This affects how packages are generated with create.
+  #packages:
+  # This means that a file created "foo.proto" in the current directory will have package "bar".
+  # A file created "a/b/foo.proto" will have package "bar.a.b".
+  #- directory: .
+  #  name: bar
+  # This means that a file created "idl/code.uber/a/b/c.proto" will have package "uber.a.b".
+  #- directory: idl/code.uber
+  #  name: uber
+
+# Lint directives.
+lint:
+  # The lint group to use.
+  # Available groups: "uber1", "uber2", "google", "empty".
+  # The default group is the "uber1" lint group for backwards compatibility reasons,
+  # however we recommend using the "uber2" lint group.
+  # The special group "empty" has no linters, allowing you to manually specify all
+  # lint rules in lint.rules.add.
+  # Run prototool lint --list-all-lint-groups to see all available lint groups.
+  # Run prototool lint --list-lint-group GROUP to list the linters in the given lint group.
+  group: uber2
+  #  ignores:
+  #    - id: PACKAGE_MAJOR_BETA_VERSIONED
+  #      files:
+  #        - google
+  # Linter files to ignore.
+  # These can either be file or directory names.
+  # If there is a directory name, that directory and all sub-directories will be ignored.
+  #  ignores:
+  #    - id: FILE_OPTIONS_REQUIRE_CSHARP_NAMESPACE
+  #      files:
+  #        - path/to/bar.proto
+  #    - id: SYNTAX_PROTO3
+  #      files:
+  #        - path/to/dir
+
+  # Linter rules.
+  # Run prototool lint --list-all-linters to see all available linters.
+  # Run prototool lint --list-linters to see the currently configured linters.
+  rules:
+
+    # The specific linters to add.
+    #    add:
+    #      - ENUM_NAMES_CAMEL_CASE
+    #      - ENUM_NAMES_CAPITALIZED
+
+    # The specific linters to remove.
+    remove:
+      - FILE_OPTIONS_REQUIRE_OBJC_CLASS_PREFIX
+      - FILE_OPTIONS_REQUIRE_CSHARP_NAMESPACE
+      - NAMES_NO_DATA
+      - NAMES_NO_COMMON
+      #- ENUM_ZERO_VALUES_INVALID_EXCEPT_MESSAGE
+      - FILE_OPTIONS_EQUAL_GO_PACKAGE_V2_SUFFIX
+
+      # The path to the file header or the file header content for all Protobuf files.
+      # If either path or content is set and the FILE_HEADER linter is turned on,
+      # files will be checked to begin with the given header, and format --fix
+      # will place this header before the syntax declaration. Note that
+      # format --fix will delete anything before the syntax declaration
+      # if this is set.
+      #
+      # Set path to use a file's contents for the header. Path must be relative.
+      # Set content to directly specify the header.
+      # **Both path and content cannot be set at the same time. They are only done
+      # so here for example purposes.**
+      #
+      # If is_commented is set, this file is assumed to already have comments
+      # and will be added directly. If is_commented is not set, "// " will be
+      # added before every line.
+      #  file_header:
+      #    path: path/to/protobuf_file_header.txt
+      #    content: |
+      #      //
+      #      // Acme, Inc. (c) 2019
+      #      //
+      #    is_commented: true
+      # Override the default java_package file option prefix of "com".
+      # If this is set, this will affect lint, create, and format --fix to use.
+      # this prefix instead of "com".
+      #  java_package_prefix: au.com
+
+      # Breaking change detector directives.
+      #break:
+      # Include beta packages in breaking change detection.
+      # Beta packages have the form "foo.bar.vMAJORbetaBETA" where MAJOR > 0 and BETA > 0.
+      # By default, beta packages are ignored.
+      #include_beta: true
+      # Allow stable packages to depend on beta packages.
+      # By default, the breaking change detector will error if a stable package
+      # depends on a breaking package.
+      # If include_beta is true, this is implicitly set.
+      #allow_beta_deps: true
+
+      # Code generation directives.
+generate:
+  # Options that will apply to all plugins of type go and gogo.
+  go_options:
+    # The base import path. This should be the go path of the prototool.yaml file.
+    # This is required if you have any go plugins.
+    # import_path: "git.github.com/donech/proto"
+    # Extra modifiers to include with Mfile=package.
+    import_path: github.com/donech/pearl/internal/proto
+  # The list of plugins.
+  plugins:
+    - name: go
+      type: go
+      flags: plugins=grpc
+      output: gen/go
+    - name: swagger
+      output: gen/swagger
+      flags: json_names_for_fields=true,fqn_for_swagger_name=true
+    - name: descriptor_set
+      output: gen/descriptor
+      file_suffix: pb
+      include_imports: true
+      include_source_info: true
